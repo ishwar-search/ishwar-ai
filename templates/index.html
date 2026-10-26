@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ishwar AI — Your AI Workspace</title>
+  <meta name="description" content="Ishwar AI - Chat, Images, Videos, Files and Website Builder">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #0b1020;
+      color: #f5f7ff;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 7%;
+      border-bottom: 1px solid #252d43;
+    }
+    .logo { font-size: 24px; font-weight: 800; color: #8b9dff; }
+    .tag { color: #a9b3c9; font-size: 13px; }
+    main { max-width: 1050px; margin: auto; padding: 65px 20px; }
+    .hero { text-align: center; margin-bottom: 40px; }
+    .pill {
+      display: inline-block; padding: 8px 14px; border-radius: 25px;
+      background: #1a2240; color: #b7c2ff; font-size: 13px;
+    }
+    h1 { font-size: clamp(35px, 7vw, 62px); margin: 22px 0 12px; }
+    h1 span { color: #8b9dff; }
+    .hero p { color: #aab4ca; line-height: 1.7; }
+    .search {
+      display: flex; gap: 10px; max-width: 680px; margin: 28px auto;
+      background: #151c30; border: 1px solid #303b59;
+      border-radius: 16px; padding: 10px;
+    }
+    .search input {
+      flex: 1; min-width: 0; background: transparent; color: white;
+      border: 0; outline: 0; padding: 12px; font-size: 16px;
+    }
+    button {
+      background: #788bff; color: #0b1020; border: 0; border-radius: 11px;
+      padding: 12px 20px; font-weight: bold; cursor: pointer;
+    }
+    .grid {
+      display: grid; grid-template-columns: repeat(3, 1fr);
+      gap: 16px; margin-top: 38px;
+    }
+    .card {
+      text-align: left; padding: 23px; border: 1px solid #29334c;
+      border-radius: 18px; background: #12192b; color: white;
+      cursor: pointer; min-height: 155px; transition: .2s;
+    }
+    .card:hover { border-color: #8798ff; transform: translateY(-3px); }
+    .emoji { font-size: 29px; }
+    .card h3 { margin: 15px 0 8px; }
+    .card p { color: #aab4ca; line-height: 1.5; font-size: 14px; }
+    #message {
+      display: none; text-align: center; margin: 20px auto;
+      padding: 18px; background: #151c30; border-radius: 14px;
+      line-height: 1.6;
+    }
+    footer {
+      text-align: center; padding: 25px; color: #8e99b3;
+      border-top: 1px solid #252d43; font-size: 13px;
+    }
+    @media(max-width:650px) {
+      header { padding: 16px; }
+      main { padding: 42px 16px; }
+      .grid { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+      .card { padding: 16px; }
+      .search { gap: 4px; }
+      .search button { padding: 10px 13px; }
+    }
+    @media(max-width:380px) {
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">✦ Ishwar AI</div>
+    <div class="tag">Your AI Workspace</div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <span class="pill">✦ Explore the power of AI</span>
+      <h1>Imagine it.<br><span>Create it.</span></h1>
+      <p>आपके विचारों से लेकर क्रिएशन तक — सब कुछ एक ही जगह।</p>
+
+      <form class="search" id="askForm">
+        <input id="question" type="text"
+          placeholder="अपना सवाल यहाँ लिखें..." autocomplete="off">
+        <button type="submit">पूछें ↗</button>
+      </form>
+      <div id="message" role="status"></div>
+    </section>
+
+    <h2>आप क्या करना चाहते हैं?</h2>
+    <section class="grid">
+      <button class="card" data-tool="chat">
+        <div class="emoji">💬</div>
+        <h3>AI Chat</h3>
+        <p>सवाल पूछें और विचारों पर काम करें।</p>
+      </button>
+      <button class="card" data-tool="image">
+        <div class="emoji">🎨</div>
+        <h3>AI Image</h3>
+        <p>अपने आइडिया से तस्वीरें बनाने की सुविधा।</p>
+      </button>
+      <button class="card" data-tool="video">
+        <div class="emoji">🎬</div>
+        <h3>AI Video</h3>
+        <p>वीडियो निर्माण के टूल्स के लिए जगह।</p>
+      </button>
+      <button class="card" data-tool="file">
+        <div class="emoji">📁</div>
+        <h3>File Tools</h3>
+        <p>फाइलों के साथ काम करने के टूल्स।</p>
+      </button>
+      <button class="card" data-tool="website">
+        <div class="emoji">🌐</div>
+        <h3>Website Builder</h3>
+        <p>अपनी वेबसाइट बनाने की शुरुआत करें।</p>
+      </button>
+      <button class="card" data-tool="plans">
+        <div class="emoji">⭐</div>
+        <h3>Plans & Pricing</h3>
+        <p>मुफ़्त और भुगतान वाले प्लान की जानकारी।</p>
+      </button>
+    </section>
+  </main>
+
+  <footer>
+    Ishwar AI · A project by Ishwar Ghanchi<br><br>
+    © 2026 Ishwar AI
+  </footer>
+
+  <script>
+    const message = document.getElementById("message");
+
+    document.getElementById("askForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+      const question = document.getElementById("question").value.trim();
+      if (!question) {
+        message.textContent = "पहले अपना सवाल लिखें।";
+      } else {
+        message.textContent =
+          "आपका सवाल: " + question +
+          " — AI Chat को जवाब देने के लिए अगला चरण में AI सेवा जोड़नी होगी।";
+      }
+      message.style.display = "block";
+    });
+
+    document.querySelectorAll("[data-tool]").forEach(function(card) {
+      card.addEventListener("click", function() {
+        const names = {
+          chat: "AI Chat",
+          image: "AI Image",
+          video: "AI Video",
+          file: "File Tools",
+          website: "Website Builder",
+          plans: "Plans & Pricing"
+        };
+        message.textContent = names[card.dataset.tool] +
+          " का फीचर अगले चरण में जोड़ा जाएगा।";
+        message.style.display = "block";
+        message.scrollIntoView({ behavior: "smooth", block: "nearest" });
+      });
+    });
+  </script>
+</body>
+</html>
