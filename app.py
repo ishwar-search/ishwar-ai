@@ -79,10 +79,7 @@ def chat():
 
     except Exception as error:
         # Details go to server logs, not to the public website.
-        app.logger.error(
-            "Gemini request failed: %s",
-            type(error).__name__
-        )
+       app.logger.exception("Gemini API request failed")
 
         return jsonify({
             "success": False,
